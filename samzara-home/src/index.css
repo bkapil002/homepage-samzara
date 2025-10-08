@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import "tailwindcss";
+@import "react-quill-new/dist/quill.snow.css";
+body{
+  background-color:white ;
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}  
+
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+
+
+.custom-content h1 strong.ql-size-large {
+  color: rgb(5, 5, 5);
+  font-size: 30px;
+
+}
+
+.custom-content p{
+   color: #3C3C3C;
+  font-size: 15px;
+   margin-bottom: 0.5rem; /* default Tailwind prose adds 1.25rem */
+  line-height: 1.5;    
+
+}
+.custom-content h1 strong {
+  color: black;
+  font-size: 22px;
+}
+
+.custom-content img {
+  display: block;
+  margin: 1rem auto;
+  border-radius: 4px;
+  max-width: 80%; 
+  height: auto;
+}
+
+.custom-content li[data-list="bullet"] {
+  list-style-type: disc;
+  margin-left: 1.5rem;
+  position: relative;
+  font-size: 15px;
+}
+
+.custom-content li[data-list="ordered"] {
+  list-style-type: decimal;  
+  margin-left: 1.5rem;
+  margin-bottom: 0.4rem;
+  font-size: 15px;
+}
+
+
+.custom-content li[data-list="bullet"]::marker {
+  color: #3C3C3C;
+}
+.custom-content ol,
+.custom-content ul {
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+/* Optional: Adjust spacing between list items */
+.custom-content li {
+  margin-bottom: 0.5rem;
+}
+.custom-content li[data-list="bullet"] {
+  display: list-item;
+}
+
+.scroll-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #2a2a72;      /* button background */
+  border-radius: 8px;
+  padding: 12px;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+  margin-right: 42px;
+}
+
+.arrows {
+  width: 25px;   /* fit inside button */
+  height: 25px;
+  display: block;
+}
+
+.arrows path {
+  stroke: #ffffff;          /* white arrows */
+  fill: transparent;
+  stroke-width: 2px;
+  animation: arrow 2s infinite;
+}
+
+@keyframes arrow {
+  0% { opacity: 0; }
+  40% { opacity: 1; }
+  80% { opacity: 0; }
+  100% { opacity: 0; }
+}
+
+.arrows path.a1 {
+  animation-delay: -1s;
+}
+.arrows path.a2 {
+  animation-delay: -0.5s;
+}
+.arrows path.a3 {
+  animation-delay: 0s;
+}
+
+@media (max-width: 768px) {
+  .scroll-btn {
+    margin-right: 0;
+  }
+}
+
+
