@@ -61,7 +61,7 @@ export default function PostEditor() {
     const uniqueName = filename || `${Date.now()}_${file.name}`;
     formData.append("mainImage", file, uniqueName);
 
-    const res = await fetch("http://localhost:5000/api/posts/upload-image", {
+    const res = await fetch("https://homepage-samzara-backend.onrender.com/api/posts/upload-image", {
       method: "POST",
       body: formData,
     });
@@ -117,7 +117,7 @@ export default function PostEditor() {
       const { html: contentWithCloudinary, embeddedImages } = await uploadEmbeddedImages(content);
 
       // Send post data to backend
-      const res = await fetch("http://localhost:5000/api/posts", {
+      const res = await fetch("https://homepage-samzara-backend.onrender.com/api/posts", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

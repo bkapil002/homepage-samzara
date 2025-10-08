@@ -14,7 +14,7 @@ const LoginForm = () => {
     e.preventDefault();
     try {
       const res = await axios.post(
-        "http://localhost:5000/api/user/signin",
+        "https://homepage-samzara-backend.onrender.com/api/user/signin",
         { email, password },
         { withCredentials: true }
       );

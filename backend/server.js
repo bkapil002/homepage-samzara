@@ -13,7 +13,7 @@ const postRoutes = require('./Route/postRoutes')
 app.use(cors({
   origin: process.env.NODE_ENV === 'production' 
     ? process.env.CLIENT_URL 
-    : 'http://localhost:5173',
+    : 'https://homepage-samzara-1.onrender.com',
   credentials: true
 }));
 
