@@ -219,7 +219,6 @@ export default function ThreeDSlider() {
           </SwiperSlide>
         ))}
       </StyledSwiper>
-      <Button>Make your first Post</Button>
     </Container>
   );
 }

@@ -18,63 +18,8 @@ body{
 }
 
 
-.custom-content h1 strong.ql-size-large {
-  color: rgb(5, 5, 5);
-  font-size: 30px;
-
-}
-
-.custom-content p{
-   color: #3C3C3C;
-  font-size: 15px;
-   margin-bottom: 0.5rem; /* default Tailwind prose adds 1.25rem */
-  line-height: 1.5;    
-
-}
-.custom-content h1 strong {
-  color: black;
-  font-size: 22px;
-}
-
-.custom-content img {
-  display: block;
-  margin: 1rem auto;
-  border-radius: 4px;
-  max-width: 80%; 
-  height: auto;
-}
-
-.custom-content li[data-list="bullet"] {
-  list-style-type: disc;
-  margin-left: 1.5rem;
-  position: relative;
-  font-size: 15px;
-}
-
-.custom-content li[data-list="ordered"] {
-  list-style-type: decimal;  
-  margin-left: 1.5rem;
-  margin-bottom: 0.4rem;
-  font-size: 15px;
-}
 
 
-.custom-content li[data-list="bullet"]::marker {
-  color: #3C3C3C;
-}
-.custom-content ol,
-.custom-content ul {
-  margin-left: 1.5rem;
-  margin-bottom: 1rem;
-}
-
-/* Optional: Adjust spacing between list items */
-.custom-content li {
-  margin-bottom: 0.5rem;
-}
-.custom-content li[data-list="bullet"] {
-  display: list-item;
-}
 
 .scroll-btn {
   position: fixed;
@@ -125,3 +70,160 @@ body{
 }
 
 
+
+.custom-content p {
+  color: #3C3C3C;
+  font-size: 14px;
+  margin-bottom: 0.5rem;
+  line-height: 1.6;
+}
+
+@media (min-width: 640px) { /* Tablet (sm) */
+  .custom-content p {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 1024px) { /* Desktop (lg) */
+  .custom-content p {
+    font-size: 16px;
+  }
+}
+
+/* Image styling */
+.custom-content img {
+  display: block;
+  margin: 1rem auto;
+  border-radius: 4px;
+  max-width: 100%;
+  height: auto;
+}
+
+/* Lists */
+.custom-content li[data-list="bullet"] {
+  list-style-type: disc;
+  margin-left: 1.5rem;
+  font-size: 14px;
+}
+
+.custom-content li[data-list="ordered"] {
+  list-style-type: decimal;
+  margin-left: 1.5rem;
+  margin-bottom: 0.4rem;
+  font-size: 14px;
+}
+
+@media (min-width: 640px) {
+  .custom-content li[data-list="bullet"],
+  .custom-content li[data-list="ordered"] {
+    font-size: 15px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .custom-content li[data-list="bullet"],
+  .custom-content li[data-list="ordered"] {
+    font-size: 16px;
+  }
+}
+
+.custom-content ol,
+.custom-content ul {
+  margin-left: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.custom-content li {
+  margin-bottom: 0.5rem;
+}
+
+/* Headings */
+.custom-content h1 {
+  font-size: 24px;
+  color: black;
+}
+.custom-content h2 {
+  font-size: 20px;
+  color: black;
+}
+.custom-content h3 {
+  font-size: 18px;
+  color: black;
+}
+.custom-content h4 {
+  font-size: 16px;
+  color: black;
+}
+.custom-content h5 {
+  font-size: 14px;
+  color: black;
+}
+.custom-content h6 {
+  font-size: 12px;
+  color: black;
+}
+
+/* Responsive heading scaling */
+@media (min-width: 640px) {
+  .custom-content h1 { font-size: 28px; }
+  .custom-content h2 { font-size: 22px; }
+  .custom-content h3 { font-size: 20px; }
+  .custom-content h4 { font-size: 18px; }
+}
+
+@media (min-width: 1024px) {
+  .custom-content h1 { font-size: 32px; }
+  .custom-content h2 { font-size: 24px; }
+  .custom-content h3 { font-size: 20px; }
+  .custom-content h4 { font-size: 18px; }
+}
+
+/* Strong text inside headings */
+.custom-content h1 strong,
+.custom-content h2 strong,
+.custom-content h3 strong,
+.custom-content h4 strong,
+.custom-content h5 strong,
+.custom-content h6 strong {
+  color: black;
+  font-weight: 600;
+}
+
+/* Links */
+.custom-content a {
+  text-decoration: underline;
+  color: #1a73e8;
+}
+
+.custom-content a:hover {
+  color: #1558b0;
+}
+
+/* Alignment */
+.custom-content .ql-align-center {
+  text-align: center;
+}
+.custom-content .ql-align-right {
+  text-align: right;
+}
+.custom-content .ql-align-justify {
+  text-align: justify;
+}
+
+/* Font sizes (from ReactQuill) */
+.custom-content .ql-size-small {
+  font-size: 0.8em;
+}
+.custom-content .ql-size-large {
+  font-size: 1.3em;
+}
+.custom-content .ql-size-huge {
+  font-size: 1.8em;
+}
+
+/* Better line height for readability on large screens */
+@media (min-width: 1024px) {
+  .custom-content {
+    line-height: 1.8;
+  }
+}
