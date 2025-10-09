@@ -15,7 +15,7 @@ const BlogDetails = () => {
     const fetchPost = async () => {
       try {
         const res = await axios.get(
-          `http://localhost:5000/api/posts/blog/${id}`
+          `https://homepage-samzara-backend.onrender.com/api/posts/blog/${id}`
         );
         setPost(res.data);
       } catch (err) {
