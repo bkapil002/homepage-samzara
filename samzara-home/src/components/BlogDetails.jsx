@@ -2,14 +2,14 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { Share2 } from "lucide-react";
-
+import { Helmet } from "react-helmet-async";
 const BlogDetails = () => {
   const { id } = useParams();
   const [post, setPost] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    // ✅ Scroll to top when the page opens
+  
     window.scrollTo(0, 0);
 
     const fetchPost = async () => {
@@ -44,7 +44,13 @@ const BlogDetails = () => {
 
   return (
     <div className="mx-auto">
-      {/* ✅ Banner Section */}
+      <Helmet>
+      <title>{post.title || post.heading}</title>
+      <meta
+        name="description"
+        content={post.description || post.content.slice(0, 160)}
+      />
+    </Helmet>
       {post.mainImage && (
         <div className="relative w-full h-48 sm:h-64 md:h-80 lg:h-[420px] overflow-hidden mb-8">
           {/* Banner Image */}
@@ -57,19 +63,19 @@ const BlogDetails = () => {
           {/* Overlay */}
           <div className="absolute inset-0 bg-black/30"></div>
 
-          {/* Title Box */}
+          {/* heading Box */}
           <div className="absolute inset-0 flex items-center justify-center px-4 sm:px-8">
             <div className="relative bg-gray-900/70 text-white px-4 sm:px-6 py-3 sm:py-4 rounded-lg shadow-lg w-full sm:w-auto max-w-3xl flex items-center justify-between">
-              {/* Title */}
+              {/* heading */}
               <h1 className="text-lg sm:text-2xl md:text-3xl font-semibold leading-snug flex-1 text-center sm:text-left">
-                {post.title}
+                {post.heading}
               </h1>
 
               {/* Share Icon (Hidden on very small screens) */}
               <button
                 onClick={() =>
                   navigator.share({
-                    title: post.title,
+                    heading: post.heading,
                     url: window.location.href,
                   })
                 }

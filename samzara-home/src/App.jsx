@@ -12,18 +12,21 @@ import HomeSecond from "./componentsecond/HomeSecond";
 import SamzaraDisclaimer from "./components/SamzaraDisclaimer";
 import SamzaraPrivacyPolicy from "./components/SamzaraPrivacyPolicy";
 import ScrollButton from "./components/ScrollButton";
+import { HelmetProvider } from "react-helmet-async";
 
 // Layout for public users
 function PublicLayout() {
   return (
     <>
       <Navebar />
+      <HelmetProvider>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/blog/:id" element={<BlogDetails />} />
         <Route path="/disclaimer" element={<SamzaraDisclaimer />} />
         <Route path="/privacy-policy" element={<SamzaraPrivacyPolicy />} />
       </Routes>
+      </HelmetProvider>
       <ScrollButton/>
       <Footer />
     </>

@@ -33,9 +33,11 @@ router.post("/upload-image", upload.single("mainImage"), async (req, res) => {
 // Endpoint: Create post
 router.post("/", async (req, res) => {
   try {
-    const { title, content, mainImage, embeddedImages } = req.body;
+    const { heading, title, description, content, mainImage, embeddedImages  } = req.body;
     const post = new Post({
-      title,
+      heading,
+      title,            
+      description,       
       content,
       mainImage,
       embeddedImages: embeddedImages || [],
@@ -50,7 +52,7 @@ router.post("/", async (req, res) => {
 
 router.get("/all-posts", async (req, res) => {
   try {
-    const posts = await Post.find({}, "title mainImage content createdAt") // select only needed fields
+    const posts = await Post.find({}, "heading title description mainImage content createdAt") // select only needed fields
       .sort({ createdAt: -1 }); // optional: newest first
 
     res.status(200).json(posts);
@@ -65,7 +67,7 @@ router.get("/blog/:id", async (req, res) => {
     const { id } = req.params;
 
     // Find post by ID and select only the required fields
-    const post = await Post.findById(id, "title content mainImage embeddedImages");
+    const post = await Post.findById(id, "heading content title description  mainImage embeddedImages");
 
     if (!post) {
       return res.status(404).json({ error: "Post not found" });
@@ -89,11 +91,11 @@ router.delete("/delete-posts/:id", async (req, res) => {
 
 router.put("/update-post/:id", async (req, res) => {
   try {
-    const { title, content, mainImage, embeddedImages } = req.body;
+    const {heading, title, description, content, mainImage, embeddedImages } = req.body;
 
     const updatedPost = await Post.findByIdAndUpdate(
       req.params.id,
-      { title, content, mainImage, embeddedImages },
+      { heading, title, description, content, mainImage, embeddedImages },
       { new: true, runValidators: true }
     );
 

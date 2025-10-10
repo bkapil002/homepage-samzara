@@ -3,12 +3,14 @@ import ReactQuill from "react-quill-new";
 import "react-quill-new/dist/quill.snow.css";
 
 export default function PostEditor() {
-  const [title, setTitle] = useState("");
+  const [heading, setheading] = useState("");
   const [content, setContent] = useState("");
   const [imageName, setImageName] = useState("");
   const [imagePreview, setImagePreview] = useState(null);
   const [mainImageFile, setMainImageFile] = useState(null);
   const [isPublishing, setIsPublishing] = useState(false);
+  const [title, setTitle] = useState("");
+  const [metaDescription, setMetaDescription] = useState("");
   const fileInputRef = useRef(null);
 
   const modules = {
@@ -90,7 +92,10 @@ export default function PostEditor() {
         const blob = new Blob([u8arr], { type: mime });
 
         // Upload with unique filename
-        const uploadedUrl = await uploadImageToServer(blob, `embedded_${Date.now()}_${Math.floor(Math.random() * 1000)}.png`);
+        const uploadedUrl = await uploadImageToServer(
+          blob,
+          `embedded_${Date.now()}_${Math.floor(Math.random() * 1000)}.png`
+        );
         img.src = uploadedUrl;
         embeddedImages.push(uploadedUrl);
       } else {
@@ -102,8 +107,8 @@ export default function PostEditor() {
   }
 
   const handlePublish = async () => {
-    if (!title.trim() || !content.trim()) {
-      alert("Please add title and content");
+    if (!heading.trim()|| !title.trim() || !content.trim()) {
+      alert("Please add title, heading and content");
       return;
     }
 
@@ -114,14 +119,17 @@ export default function PostEditor() {
         mainImageUrl = await uploadImageToServer(mainImageFile);
       }
 
-      const { html: contentWithCloudinary, embeddedImages } = await uploadEmbeddedImages(content);
+      const { html: contentWithCloudinary, embeddedImages } =
+        await uploadEmbeddedImages(content);
 
       // Send post data to backend
       const res = await fetch("https://homepage-samzara-xki5.onrender.com/api/posts", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
+          heading,
           title,
+          description: metaDescription,
           content: contentWithCloudinary,
           embeddedImages,
           mainImage: mainImageUrl,
@@ -132,9 +140,11 @@ export default function PostEditor() {
       alert("Post published successfully!");
 
       // Reset form
-      setTitle("");
+      setheading("");
       setContent("");
       setImageName("");
+      setTitle("")
+      setMetaDescription("")
       setImagePreview(null);
       setMainImageFile(null);
     } catch (error) {
@@ -149,10 +159,29 @@ export default function PostEditor() {
       <input
         type="text"
         placeholder="Heading"
-        value={title}
-        onChange={(e) => setTitle(e.target.value)}
+        value={heading}
+        onChange={(e) => setheading(e.target.value)}
         className="w-full text-2xl font-semibold border border-gray-300 rounded-md p-3"
       />
+      <input
+        type="text"
+        placeholder="Title (SEO)"
+        value={title}
+        onChange={(e) => setTitle(e.target.value)}
+        className="w-full text-lg border border-gray-300 rounded-md p-3"
+      />
+
+      <input
+        type="text"
+        placeholder="Meta Description (SEO)"
+        value={metaDescription}
+        onChange={(e) => setMetaDescription(e.target.value)}
+        className="w-full text-sm border border-gray-300 rounded-md p-3 mt-2"
+        maxLength={100}
+      />
+      <p className="text-gray-500 text-sm">
+        {metaDescription.length}/100 characters
+      </p>
 
       <div className="p-4 rounded-md">
         <button
@@ -216,7 +245,9 @@ export default function PostEditor() {
         type="button"
         onClick={handlePublish}
         disabled={isPublishing}
-        className={`px-6 py-3 bg-blue-600 mt-4 hover:bg-blue-700 text-white font-semibold rounded-lg shadow-md transition duration-300 ease-in-out ${isPublishing ? "opacity-50 cursor-not-allowed" : ""}`}
+        className={`px-6 py-3 bg-blue-600 mt-4 hover:bg-blue-700 text-white font-semibold rounded-lg shadow-md transition duration-300 ease-in-out ${
+          isPublishing ? "opacity-50 cursor-not-allowed" : ""
+        }`}
       >
         {isPublishing ? "Publishing..." : "Publish"}
       </button>

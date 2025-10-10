@@ -91,14 +91,14 @@ const BlogSlider = () => {
                 <div className="relative h-64 w-full overflow-hidden">
                   <img
                     src={post.mainImage || "https://findrehabcentres.com/wp-content/uploads/2025/10/Taking-the-First-Step-Toward-Healing.jpg" }
-                    alt={post.title}
+                    alt={post.heading}
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
                   />
                 </div>
               {/* Content */}
               <div className="p-6 flex-grow flex flex-col">
                   <h3 className="text-xl font-bold mb-3 text-gray-900 line-clamp-2 hover:text-[#2C2D5B] transition-colors cursor-pointer">
-                  {post.title}
+                  {post.heading}
                 </h3>        
               </div>
             </div>

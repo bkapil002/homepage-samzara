@@ -11,11 +11,13 @@ const BlogUpdate = () => {
   // States for editing
   const [isEditing, setIsEditing] = useState(false);
   const [editId, setEditId] = useState(null);
-  const [title, setTitle] = useState("");
+  const [heading, setheading] = useState("");
   const [content, setContent] = useState("");
   const [mainImageFile, setMainImageFile] = useState(null);
   const [mainImagePreview, setMainImagePreview] = useState(null);
   const [mainImageName, setMainImageName] = useState("");
+  const [title, setTitle] = useState("");
+  const [metaDescription, setMetaDescription] = useState("");
   const fileInputRef = useRef();
 
   // Save button loading state
@@ -77,11 +79,13 @@ const BlogUpdate = () => {
 
   const handleEdit = (post) => {
     setEditId(post._id);
-    setTitle(post.title);
+    setheading(post.heading);
     setContent(post.content);
     setMainImagePreview(post.mainImage);
     setMainImageName(post.mainImage ? "Current Image" : "");
     setMainImageFile(null);
+    setTitle(post.title || "");
+    setMetaDescription(post.description || "");
     setIsEditing(true);
   };
 
@@ -129,15 +133,14 @@ const BlogUpdate = () => {
       imageUrls = extractImageUrls(html);
 
       // Update the post
-      await axios.put(
-        `https://homepage-samzara-xki5.onrender.com/api/posts/update-post/${editId}`,
-        {
-          title,
-          content: html,
-          mainImage: mainImageUrl,
-          embeddedImages: imageUrls,
-        }
-      );
+      await axios.put(`https://homepage-samzara-xki5.onrender.com/api/posts/update-post/${editId}`, {
+        heading,
+        title,               // added
+        description: metaDescription,
+        content: html,
+        mainImage: mainImageUrl,
+        embeddedImages: imageUrls,
+      });
 
       alert("✅ Post updated successfully!");
       setIsEditing(false);
@@ -180,6 +183,7 @@ const BlogUpdate = () => {
 
   return (
     <div className="p-6 bg-gray-50 min-h-screen">
+      
       <h1 className="text-2xl font-bold mb-6 text-gray-800">
         Manage Blog Posts
       </h1>
@@ -197,12 +201,12 @@ const BlogUpdate = () => {
             >
               <img
                 src={post.mainImage}
-                alt={post.title}
+                alt={post.heading}
                 className="w-full h-48 object-cover"
               />
               <div className="p-4 flex justify-between items-center">
                 <h2 className="text-lg font-semibold text-gray-800 truncate w-3/4">
-                  {post.title}
+                  {post.heading}
                 </h2>
                 <div className="flex gap-3">
                   <button
@@ -239,15 +243,32 @@ const BlogUpdate = () => {
               ✏️ Edit Blog Post
             </h2>
 
-            {/* Title Input */}
+            {/* heading Input */}
             <input
               type="text"
               placeholder="Heading"
-              value={title}
-              onChange={(e) => setTitle(e.target.value)}
+              value={heading}
+              onChange={(e) => setheading(e.target.value)}
               className="w-full text-xl font-semibold border border-gray-300 rounded-md p-3 mb-6 focus:outline-none focus:ring-2 focus:ring-blue-400"
             />
-
+            <input
+              type="text"
+              placeholder="Title (SEO)"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              className="w-full text-lg border border-gray-300 rounded-md p-3 mb-3"
+            />
+            <input
+              type="text"
+              placeholder="Meta Description (SEO)"
+              value={metaDescription}
+              onChange={(e) => setMetaDescription(e.target.value)}
+              className="w-full text-sm border border-gray-300 rounded-md p-3 mb-1"
+              maxLength={100}
+            />
+            <p className="text-gray-500 text-sm">
+              {metaDescription.length}/100 characters
+            </p>
             {/* Main Image Upload */}
             <div className="p-4 border rounded-md mb-6 bg-gray-50">
               <button
@@ -268,7 +289,8 @@ const BlogUpdate = () => {
               {mainImageName && (
                 <div className="mt-3">
                   <p className="text-sm text-gray-600 mb-1">
-                    Uploaded: <span className="font-medium">{mainImageName}</span>
+                    Uploaded:{" "}
+                    <span className="font-medium">{mainImageName}</span>
                   </p>
                   {mainImagePreview && (
                     <img
