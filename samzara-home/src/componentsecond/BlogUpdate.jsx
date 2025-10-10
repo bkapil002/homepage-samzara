@@ -39,7 +39,7 @@ const BlogUpdate = () => {
     const formData = new FormData();
     formData.append("mainImage", file);
     const uploadRes = await axios.post(
-      "https://homepage-samzara-backend.onrender.com/api/posts/upload-image",
+      "https://homepage-samzara-xki5.onrender.com/api/posts/upload-image",
       formData
     );
     return uploadRes.data.url;
@@ -49,7 +49,7 @@ const BlogUpdate = () => {
   const fetchPosts = async () => {
     try {
       setLoading(true);
-      const res = await axios.get("https://homepage-samzara-backend.onrender.com/api/posts/all-posts");
+      const res = await axios.get("https://homepage-samzara-xki5.onrender.com/api/posts/all-posts");
       setPosts(res.data);
       setLoading(false);
     } catch (error) {
@@ -66,7 +66,7 @@ const BlogUpdate = () => {
     if (window.confirm("Are you sure you want to delete this post?")) {
       try {
         await axios.delete(
-          `https://homepage-samzara-backend.onrender.com/api/posts/delete-posts/${id}`
+          `https://homepage-samzara-xki5.onrender.com/api/posts/delete-posts/${id}`
         );
         setPosts(posts.filter((post) => post._id !== id));
       } catch (error) {
@@ -106,7 +106,7 @@ const BlogUpdate = () => {
         formData.append("mainImage", mainImageFile);
 
         const uploadRes = await axios.post(
-          "https://homepage-samzara-backend.onrender.com/api/posts/upload-image",
+          "https://homepage-samzara-xki5.onrender.com/api/posts/upload-image",
           formData
         );
 
@@ -130,7 +130,7 @@ const BlogUpdate = () => {
 
       // Update the post
       await axios.put(
-        `https://homepage-samzara-backend.onrender.com/api/posts/update-post/${editId}`,
+        `https://homepage-samzara-xki5.onrender.com/api/posts/update-post/${editId}`,
         {
           title,
           content: html,

@@ -17,7 +17,7 @@ const BlogSlider = () => {
     const fetchPosts = async () => {
       try {
         setLoading(true);
-        const res = await axios.get("https://homepage-samzara-backend.onrender.com/api/posts/all-posts"); 
+        const res = await axios.get("https://homepage-samzara-xki5.onrender.com/api/posts/all-posts"); 
         console.log("Fetched posts:", res.data); // Debug log
         setPosts(res.data);
       } catch (err) {

@@ -9,7 +9,7 @@ const NavbarSecond = () => {
 
    const handleLogout = async () => {
     try {
-      const response = await fetch("https://homepage-samzara-backend.onrender.com/api/user/logOut", {
+      const response = await fetch("https://homepage-samzara-xki5.onrender.com/api/user/logOut", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
