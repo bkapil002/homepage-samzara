@@ -94,11 +94,12 @@ const BlogSlider = () => {
           <SwiperSlide key={post._id}>
             <div onClick={() => navigate(`/blog/${post._id}`)}  className="bg-white cursor-pointer rounded-lg overflow-hidden shadow-lg h-full flex flex-col hover:shadow-xl transition-shadow">
               {/* Date Badge */}
-              <div className="absolute top-4 left-4 bg-white rounded-lg shadow-md p-3 z-10">
-                <div className="text-2xl font-bold text-gray-800">
+               <div className="absolute top-4 left-4 bg-white rounded-[5px] shadow-md p-3 z-10">
+                <div className="text-[21px] text-center font-bold text-[#4d4d4d]">
                   {new Date(post.createdAt).getDate()}
                 </div>
-                <div className="text-xs text-gray-600 uppercase">
+                <div className="  border-[1px] -mt-1 mb-0.5 text-[#4d4d4d] " />
+                <div className="text-xs text-[#4d4d4d] uppercase">
                   {new Date(post.createdAt).toLocaleString('en', { month: 'short' })}
                 </div>
               </div>
