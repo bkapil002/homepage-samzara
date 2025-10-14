@@ -97,12 +97,12 @@ const RequirementTitle = styled.h2`
 
 const RequirementText = styled.p`
   text-align: justify;
-  font-size: 10px;
+  font-size: 13px;
   color: #636363;
   line-height: 1.5;
 
   @media (max-width: 640px) {
-    font-size: 9px;
+    font-size: 10px;
     padding: 0 4px;
   }
 `;
@@ -147,28 +147,23 @@ const Button = styled.button`
 const SLIDES = [
   {
     img: services,
-    title: "REQUIREMENT",
-    text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s...",
+    title: "Professional Support",
+    text: "Connect with qualified clinical experts and de-addiction specialists. Receive personalized advice and support tailored to your needs.",
   },
   {
     img: services,
-    title: "REQUIREMENT",
-    text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s...",
+    title: "Anonymity",
+    text: "Engage in Confidential Conversations. Share your stories and experiences without fear of judgment. Experience mutual support and a sense of belonging with SamZara.",
   },
   {
     img: services,
-    title: "REQUIREMENT",
-    text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s...",
+    title: "Socialize and Empower ",
+    text: "Get access to a wealth of resources. Blogs, articles, videos, and guides. All aimed at promoting mental health, well-being, and personal development",
   },
   {
     img: services,
-    title: "REQUIREMENT",
-    text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s...",
-  },
-  {
-    img: services,
-    title: "REQUIREMENT",
-    text: "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s...",
+    title: "Interactive Sessions",
+    text: "Attend live events and workshops led by experts. Uncover stress management, addiction recovery, and personal growth.",
   },
 ];
 
