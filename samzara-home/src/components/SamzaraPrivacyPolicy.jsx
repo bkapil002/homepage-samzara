@@ -10,6 +10,7 @@ const SamzaraPrivacyPolicy = () => {
           src="https://findrehabcentres.com/wp-content/uploads/2023/11/Privacy-Policy.jpg"
           alt="Disclaimer Banner"
           className="w-full h-64 object-cover"
+          loading="lazy"
         />
 
         {/* Overlay */}

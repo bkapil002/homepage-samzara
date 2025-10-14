@@ -135,7 +135,7 @@ export default function Footer() {
                   rel="noopener noreferrer"
                   className="text-[#1d293f] font-bold flex text-sm sm:text-[15px] items-center cursor-pointer gap-2"
                 >
-                  <p> Reach Us</p> <img src={left} className="w-7 h-3" />
+                  <p> Reach Us</p> <img src={left} className="w-7 h-3"  loading="lazy"/>
                 </a>
                 <div className="font-bold text-[#626C8B] text-xs sm:text-base">
                   We're there for you.

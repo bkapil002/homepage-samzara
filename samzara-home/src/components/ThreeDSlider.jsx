@@ -194,7 +194,7 @@ export default function ThreeDSlider() {
         {SLIDES.map((slide, idx) => (
           <SwiperSlide key={idx} style={{ width: "400px", maxWidth: "95vw" }}>
             <SlideContent>
-              <Img src={slide.img} alt="People" />
+              <Img src={slide.img} loading="lazy" alt="People" />
               <RequirementTitle>{slide.title}</RequirementTitle>
               <div
                 className="w-30 h-[2px] rounded-3xl -mt-2 mb-3 bg-[#f86925] "

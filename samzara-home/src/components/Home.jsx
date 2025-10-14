@@ -61,6 +61,7 @@ const Home = () => {
               src={deaddiction}
               alt="De-addiction group"
               className="max-w-full h-auto rounded-md"
+              loading="lazy"
             />
           </div>
 
@@ -121,6 +122,7 @@ const Home = () => {
               src={doctor}
               alt="doctor illustration"
               className="max-w-full h-auto lg:h-[380px] rounded-md"
+              loading="lazy"
             />
           </div>
 

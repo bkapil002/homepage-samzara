@@ -56,6 +56,7 @@ const BlogDetails = () => {
           {/* Banner Image */}
           <img
             src={post.mainImage}
+            loading="lazy"
             alt="Main"
             className="w-full h-full object-cover"
           />

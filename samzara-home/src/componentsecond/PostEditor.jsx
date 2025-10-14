@@ -208,6 +208,7 @@ export default function PostEditor() {
                 src={imagePreview}
                 alt="Preview"
                 className="w-40 h-40 object-cover rounded-lg border border-gray-300"
+                loading="lazy"
               />
             )}
             <button

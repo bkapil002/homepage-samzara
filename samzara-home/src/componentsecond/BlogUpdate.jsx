@@ -203,6 +203,7 @@ const BlogUpdate = () => {
                 src={post.mainImage}
                 alt={post.heading}
                 className="w-full h-48 object-cover"
+                loading="lazy"
               />
               <div className="p-4 flex justify-between items-center">
                 <h2 className="text-lg font-semibold text-gray-800 truncate w-3/4">
@@ -297,6 +298,7 @@ const BlogUpdate = () => {
                       src={mainImagePreview}
                       alt="Preview"
                       className="w-40 h-40 object-cover rounded-lg border"
+                      loading="lazy"
                     />
                   )}
                   <button

@@ -107,6 +107,7 @@ const BlogSlider = () => {
                     src={post.mainImage || "https://findrehabcentres.com/wp-content/uploads/2025/10/Taking-the-First-Step-Toward-Healing.jpg" }
                     alt={post.heading}
                     className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                    loading="lazy"
                   />
                 </div>
               {/* Content */}
