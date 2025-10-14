@@ -67,16 +67,14 @@ const Home = () => {
           {/* Right Side - Content */}
           <div className="flex-1 flex flex-col w-full" data-aos="fade-up">
             <p className="text-gray-700 text-center md:text-right mb-6 text-sm sm:text-base">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, when an unknown printer took a galley of
-              type and scrambled it to make a type specimen book. It has
-              survived not only five centuries, but also the leap into
-              electronic typesetting, remaining essentially unchanged. It was
-              popularised in the 1960s with the release of Letraset sheets
-              containing Lorem Ipsum passages, and more recently with desktop
-              publishing software like Aldus PageMaker including versions of
-              Lorem Ipsum.
+              <b>Samzara is a social network with a purpose. Built for people who
+              believe in connection, compassion, and change.</b> <br/>A safe and
+              inclusive space to share your journey, exchange hope stories, and
+              find encouragement. Find inspiration from others walking similar
+              paths. Join groups, meet people online, even anonymously. Take
+              part in conversations that inspire growth and positivity. With
+              tools, resources, and a supportive community by your side, Samzara
+              helps you connect, heal, and make a difference together.
             </p>
 
             {/* Button aligned right */}
@@ -110,7 +108,7 @@ const Home = () => {
           data-aos="fade-up"
           data-aos-anchor-placement="center-bottom"
         >
-          De-Addiction Anonymous
+          Explore the Docter
         </h1>
 
         {/* Flex container for image + text */}
@@ -200,8 +198,8 @@ const Home = () => {
       <div data-aos="fade-up" data-aos-anchor-placement="center-bottom">
         <JoinMember />
       </div>
-       <div data-aos="fade-up" data-aos-anchor-placement="center-bottom">
-        <BlogSlider/>
+      <div data-aos="fade-up" data-aos-anchor-placement="center-bottom">
+        <BlogSlider />
       </div>
     </div>
   );

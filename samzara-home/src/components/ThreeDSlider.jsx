@@ -9,7 +9,6 @@ import services from "../Image/services.png";
 
 const Container = styled.div`
   width: 98vw;
-  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -51,7 +50,7 @@ const Subtitle = styled.p`
 const StyledSwiper = styled(Swiper)`
   width: 80vw;
   max-width: 900px;
-  height: 650px;
+  height: 500px;
 
   .swiper-pagination-bullets {
     bottom: 20px;

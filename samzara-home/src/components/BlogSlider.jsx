@@ -31,11 +31,25 @@ const BlogSlider = () => {
 
   if (loading) {
     return (
-      <div className="w-full max-w-7xl mx-auto py-8 px-4">
-        <div className="flex justify-center items-center h-64">
-          <p className="text-gray-600">Loading blogs...</p>
+       <div className="w-full max-w-7xl mx-auto py-8 px-4 sm:px-8 md:px-19 lg:px-16 ">
+  <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+    {[1, 2, 3].map((index) => (
+      <div
+        key={index}
+        className={`bg-white rounded-lg overflow-hidden shadow-lg animate-pulse
+          ${index === 2 ? "hidden sm:block lg:block" : ""}
+          ${index === 3 ? "hidden lg:block" : ""}`}
+      >
+        <div className="relative h-64 w-full bg-gray-200"></div>
+
+        <div className="p-6 space-y-4">
+          <div className="h-6 bg-gray-200 rounded w-3/4"></div>
+          <div className="h-4 bg-gray-200 rounded w-1/2"></div>
         </div>
       </div>
+    ))}
+  </div>
+</div>
     );
   }
 
