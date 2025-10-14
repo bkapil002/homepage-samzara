@@ -123,10 +123,10 @@ const BlogSlider = () => {
 
       {/* Navigation buttons */}
       <div className="flex justify-center mt-8 gap-4">
-        <button className="custom-prev-button w-12 h-12  cursor-pointer flex items-center justify-center border-2 border-gray-300 rounded-lg hover:bg-gray-100 hover:border-gray-400 transition-all text-2xl font-bold text-gray-700">
+        <button className="custom-prev-button w-10 h-10  cursor-pointer flex items-center justify-center border-2 border-gray-300 rounded-lg hover:bg-gray-100 hover:border-gray-400 transition-all text-2xl font-bold text-gray-700">
           <ChevronLeft />
         </button>
-        <button className="custom-next-button w-12 h-12 cursor-pointer flex items-center justify-center border-2 border-gray-300 rounded-lg hover:bg-gray-100 hover:border-gray-400 transition-all text-2xl font-bold text-gray-700">
+        <button className="custom-next-button w-10 h-10 cursor-pointer flex items-center justify-center border-2 border-gray-300 rounded-lg hover:bg-gray-100 hover:border-gray-400 transition-all text-2xl font-bold text-gray-700">
           <ChevronRight />
         </button>
       </div>
