@@ -29,7 +29,7 @@ const Navebar = () => {
       <div className="flex items-center justify-between py-4 px-4 sm:px-8 md:px-19 lg:px-16">
         {/* Logo */}
         <a href="/" className="flex w-[120px] md:w-[153px]">
-          <img src={logo} alt="Logo" className="w-full" loading="lazy"/>
+          <img src={logo} alt="Logo" className="w-full" fetchpriority="high"/>
         </a>
 
         {/* Hamburger (mobile) */}

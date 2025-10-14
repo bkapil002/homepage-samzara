@@ -28,11 +28,14 @@ const Home = () => {
         data-aos="fade-in"
       >
         <video
-          src={video}
+           src={video}
           autoPlay
           loop
           muted
+           playsInline
           className="w-full rounded-2xl h-[90vh] md:h-auto lg:h-auto object-cover"
+          fetchpriority="high"
+          preload="metadata"
         />
       </div>
 
