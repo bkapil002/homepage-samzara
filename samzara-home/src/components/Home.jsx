@@ -135,18 +135,25 @@ const Home = () => {
             data-aos="fade-up"
             data-aos-anchor-placement="center-bottom"
           >
+            <h4 className="font-semibold text-[#3C3C3C] text-[18px] mb-2 text-center md:text-left">
+             Professional Support That Also Feels Personal.
+            </h4>
             <p className="text-[#3C3C3C] mb-6 text-center md:text-left text-sm sm:text-base">
-              Lorem Ipsum is simply dummy text of the printing and typesetting
-              industry. Lorem Ipsum has been the industry's standard dummy text
-              ever since the 1500s, when an unknown
+              Samzara connects you with <b> clinical experts and qualified
+              de-addiction doctors.</b> They understand what real recovery takes.
+              Discover practical strategies that help you take control. Whether
+              through group sessions or one-on-one guidance, professionals at
+              SamZara are here to listen. The support that enables you to take
+              confident steps toward a healthier, happier life. All in a safe
+              and confidential space.
             </p>
 
-            <h4 className="font-semibold text-[#3C3C3C] mb-3 text-center md:text-left">
+            {/* <h4 className="font-semibold text-[#3C3C3C] mb-3 text-center md:text-left">
               Doctors in high demand
-            </h4>
+            </h4> */}
 
             {/* Pills */}
-            <div className="flex flex-wrap gap-2 mb-6 justify-center md:justify-start">
+            {/* <div className="flex flex-wrap gap-2 mb-6 justify-center md:justify-start">
               {[
                 "Methamp",
                 "Weed",
@@ -168,14 +175,11 @@ const Home = () => {
                   {item}
                 </span>
               ))}
-            </div>
+            </div> */}
 
             <p className="text-[#3C3C3C] mb-6 text-center md:text-left text-sm sm:text-base">
-              Printer took a galley of type and scrambled it to make a type
-              specimen book. It has survived not only five centuries, but also
-              the leap into electronic typesetting, remaining essentially
-              unchanged. It was popularised in the 1960s with the release of
-              Letraset sheets Ipsum.
+              Real people. Real support. An online space built on hope, trust,
+              and empathy.
             </p>
 
             {/* Button */}
