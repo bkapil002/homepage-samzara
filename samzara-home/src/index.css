@@ -135,27 +135,27 @@ body{
 /* Headings */
 .custom-content h1 {
   font-size: 24px;
-  color: rgb(27, 27, 27);
+  color: #222A3F;
 }
 .custom-content h2 {
   font-size: 20px;
-  color: rgb(27, 27, 27);
+  color: #222A3F;
 }
 .custom-content h3 {
   font-size: 18px;
-  color: rgb(27, 27, 27);
+  color: #222A3F;
 }
 .custom-content h4 {
   font-size: 16px;
-  color: rgb(27, 27, 27);
+  color: #222A3F;
 }
 .custom-content h5 {
   font-size: 14px;
-  color: rgb(27, 27, 27);
+  color: #222A3F;
 }
 .custom-content h6 {
   font-size: 12px;
-  color: rgb(27, 27, 27);
+  color: #222A3F;
 }
 
 /* Responsive heading scaling */
@@ -180,7 +180,7 @@ body{
 .custom-content h4 strong,
 .custom-content h5 strong,
 .custom-content h6 strong {
-  color: rgb(27, 27, 27);
+  color: #222A3F;
   font-weight: 600;
 }
 
