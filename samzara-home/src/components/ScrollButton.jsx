@@ -3,7 +3,7 @@ import { useCallback } from "react";
 function ScrollButton() {
   // Scroll function
   const scrollWin = useCallback(() => {
-    window.scrollBy({ top: 200, behavior: "smooth" }); // scroll down by 200px
+    window.scrollBy({ top: 600, behavior: "smooth" }); // scroll down by 200px
   }, []);
 
   return (
