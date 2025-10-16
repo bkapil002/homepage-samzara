@@ -9,7 +9,6 @@ const BlogDetails = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-  
     window.scrollTo(0, 0);
 
     const fetchPost = async () => {
@@ -30,8 +29,44 @@ const BlogDetails = () => {
 
   if (loading) {
     return (
-      <div className="flex justify-center items-center h-screen text-lg text-gray-600">
-        Loading post...
+      <div className=" animate-pulse mx-auto mb-20 space-y-8">
+
+        <div className="relative w-full h-64 sm:h-72 md:h-80 lg:h-[420px] bg-gray-300 rounded-xl shimmer overflow-hidden">
+          <div className="absolute animate-pulse  inset-0 flex items-center justify-center px-4 sm:px-8">
+            <div className="bg-gray-400/60 rounded-lg w-full max-w-3xl px-6 py-4 shadow-lg overflow-hidden">
+          
+              <div className="h-6 sm:h-8 bg-gray-500 rounded w-3/4 mx-auto mb-3"></div>
+              <div className="h-5 sm:h-8 bg-gray-500 rounded w-2/3 mx-auto"></div>
+            </div>
+          </div>
+        </div>
+
+
+        <div className="space-y-3 animate-pulse  px-4 sm:px-8 md:px-19 lg:px-16 max-w-6xl">
+          <div className="h-8 bg-gray-300 rounded w-5/6 mx-auto shimmer"></div>
+          <div className="h-4 bg-gray-300 rounded w-1/2 mx-auto shimmer"></div>
+        </div>
+
+
+        <div className="space-y-3 max-w-6xl px-4 sm:px-8 md:px-19 lg:px-16 mx-auto mt-6">
+          <div className="h-4 bg-gray-300 rounded shimmer"></div>
+          <div className="h-4 bg-gray-300 rounded w-5/6 shimmer"></div>
+          <div className="h-4 bg-gray-300 rounded w-4/6 shimmer"></div>
+          <div className="h-4 bg-gray-300 rounded shimmer"></div>
+        </div>
+
+ 
+        <div className="space-y-1 mx-auto px-4 sm:px-8 md:px-19 lg:px-16 max-w-6xl">
+          <div className="h-8 bg-gray-300 rounded shimmer mx-auto"></div>
+        </div>
+
+
+        <div className="space-y-2 max-w-6xl mx-auto px-4 sm:px-8 md:px-19 lg:px-16">
+          <div className="h-4 bg-gray-300 rounded shimmer"></div>
+          <div className="h-4 bg-gray-300 rounded shimmer"></div>
+          <div className="h-4 bg-gray-300 rounded shimmer"></div>
+          <div className="h-4 bg-gray-300 rounded shimmer"></div>
+        </div>
       </div>
     );
   }
@@ -45,12 +80,12 @@ const BlogDetails = () => {
   return (
     <div className="mx-auto">
       <Helmet>
-      <title>{post.title || post.heading}</title>
-      <meta
-        name="description"
-        content={post.description || post.content.slice(0, 160)}
-      />
-    </Helmet>
+        <title>{post.title || post.heading}</title>
+        <meta
+          name="description"
+          content={post.description || post.content.slice(0, 160)}
+        />
+      </Helmet>
       {post.mainImage && (
         <div className="relative w-full h-48 sm:h-64 md:h-80 lg:h-[420px] overflow-hidden mb-8">
           {/* Banner Image */}
