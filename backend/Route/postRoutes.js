@@ -52,7 +52,7 @@ router.post("/", async (req, res) => {
 
 router.get("/all-posts", async (req, res) => {
   try {
-    const posts = await Post.find({}, "heading title description mainImage content createdAt") // select only needed fields
+    const posts = await Post.find({}, "heading  mainImage  createdAt") // select only needed fields
       .sort({ createdAt: -1 }); // optional: newest first
 
     res.status(200).json(posts);
