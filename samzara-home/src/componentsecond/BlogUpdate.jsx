@@ -19,6 +19,7 @@ const BlogUpdate = () => {
   const [title, setTitle] = useState("");
   const [metaDescription, setMetaDescription] = useState("");
   const fileInputRef = useRef();
+  const URL = import.meta.env.VITE_API_URL
 
   // Save button loading state
   const [saving, setSaving] = useState(false);
@@ -41,7 +42,7 @@ const BlogUpdate = () => {
     const formData = new FormData();
     formData.append("mainImage", file);
     const uploadRes = await axios.post(
-      "https://homepage-samzara-xki5.onrender.com/api/posts/upload-image",
+      `${URL}/api/posts/upload-image`,
       formData
     );
     return uploadRes.data.url;
@@ -51,7 +52,7 @@ const BlogUpdate = () => {
   const fetchPosts = async () => {
     try {
       setLoading(true);
-      const res = await axios.get("https://homepage-samzara-xki5.onrender.com/api/posts/all-posts");
+      const res = await axios.get(`${URL}/api/posts/all-posts-second`);
       setPosts(res.data);
       setLoading(false);
     } catch (error) {
@@ -68,7 +69,7 @@ const BlogUpdate = () => {
     if (window.confirm("Are you sure you want to delete this post?")) {
       try {
         await axios.delete(
-          `https://homepage-samzara-xki5.onrender.com/api/posts/delete-posts/${id}`
+          `${URL}/api/posts/delete-posts/${id}`
         );
         setPosts(posts.filter((post) => post._id !== id));
       } catch (error) {
@@ -110,7 +111,7 @@ const BlogUpdate = () => {
         formData.append("mainImage", mainImageFile);
 
         const uploadRes = await axios.post(
-          "https://homepage-samzara-xki5.onrender.com/api/posts/upload-image",
+          `${URL}/api/posts/upload-image`,
           formData
         );
 
@@ -133,7 +134,7 @@ const BlogUpdate = () => {
       imageUrls = extractImageUrls(html);
 
       // Update the post
-      await axios.put(`https://homepage-samzara-xki5.onrender.com/api/posts/update-post/${editId}`, {
+      await axios.put(`${URL}/api/posts/update-post/${editId}`, {
         heading,
         title,               // added
         description: metaDescription,
@@ -265,7 +266,7 @@ const BlogUpdate = () => {
               value={metaDescription}
               onChange={(e) => setMetaDescription(e.target.value)}
               className="w-full text-sm border border-gray-300 rounded-md p-3 mb-1"
-              maxLength={100}
+              maxLength={200}
             />
             <p className="text-gray-500 text-sm">
               {metaDescription.length}/100 characters

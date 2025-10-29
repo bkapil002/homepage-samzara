@@ -10,12 +10,13 @@ const LoginForm = () => {
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
   const [loading, setLoading] = useState(false);
+  const URL = import.meta.env.VITE_API_URL
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     try {
       const res = await axios.post(
-        "https://homepage-samzara-xki5.onrender.com/api/user/signin",
+        `${URL}/api/user/signin`,
         { email, password },
         { withCredentials: true }
       );

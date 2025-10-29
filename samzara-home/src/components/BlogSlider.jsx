@@ -12,12 +12,12 @@ const BlogSlider = () => {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);
   const navigate = useNavigate();
-
+  const URL = import.meta.env.VITE_API_URL
   useEffect(() => {
     const fetchPosts = async () => {
       try {
         setLoading(true);
-        const res = await axios.get("https://homepage-samzara-xki5.onrender.com/api/posts/all-posts"); 
+        const res = await axios.get(`${URL}/api/posts/all-posts`); 
         console.log("Fetched posts:", res.data); // Debug log
         setPosts(res.data);
       } catch (err) {

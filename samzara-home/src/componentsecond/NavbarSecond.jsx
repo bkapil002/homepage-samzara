@@ -7,12 +7,13 @@ const NavbarSecond = () => {
   const navigate = useNavigate();
   const { logout ,user} = useContext(AuthContext); 
   const [loading, setLoading] = useState(false);
-
+  const URL = import.meta.env.VITE_API_URL
+  
    const handleLogout = async () => {
     if (loading) return;
     setLoading(true);
     try {
-      const response = await fetch("https://homepage-samzara-xki5.onrender.com/api/user/logOut", {
+      const response = await fetch(`${URL}/api/user/logOut`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -12,6 +12,7 @@ export default function PostEditor() {
   const [title, setTitle] = useState("");
   const [metaDescription, setMetaDescription] = useState("");
   const fileInputRef = useRef(null);
+  const URL = import.meta.env.VITE_API_URL
 
   const modules = {
     toolbar: [
@@ -63,7 +64,7 @@ export default function PostEditor() {
     const uniqueName = filename || `${Date.now()}_${file.name}`;
     formData.append("mainImage", file, uniqueName);
 
-    const res = await fetch("https://homepage-samzara-xki5.onrender.com/api/posts/upload-image", {
+    const res = await fetch(`${URL}/api/posts/upload-image`, {
       method: "POST",
       body: formData,
     });
@@ -123,7 +124,7 @@ export default function PostEditor() {
         await uploadEmbeddedImages(content);
 
       // Send post data to backend
-      const res = await fetch("https://homepage-samzara-xki5.onrender.com/api/posts", {
+      const res = await fetch(`${URL}/api/posts`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -177,10 +178,10 @@ export default function PostEditor() {
         value={metaDescription}
         onChange={(e) => setMetaDescription(e.target.value)}
         className="w-full text-sm border border-gray-300 rounded-md p-3 mt-2"
-        maxLength={100}
+        maxLength={200}
       />
       <p className="text-gray-500 text-sm">
-        {metaDescription.length}/100 characters
+        {metaDescription.length}/200 characters
       </p>
 
       <div className="p-4 rounded-md">

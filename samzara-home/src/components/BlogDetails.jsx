@@ -7,14 +7,14 @@ const BlogDetails = () => {
   const { id } = useParams();
   const [post, setPost] = useState(null);
   const [loading, setLoading] = useState(true);
-
+  const URL = import.meta.env.VITE_API_URL
   useEffect(() => {
     window.scrollTo(0, 0);
 
     const fetchPost = async () => {
       try {
         const res = await axios.get(
-          `https://homepage-samzara-xki5.onrender.com/api/posts/blog/${id}`
+          `${URL}/api/posts/blog/${id}`
         );
         setPost(res.data);
       } catch (err) {
